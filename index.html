@@ -2843,6 +2843,10 @@
         overflow: visible;
       }
 
+      /* Slides mais altos que a tela precisam rolar por inteiro antes do
+         encaixe do próximo capítulo. */
+      html { scroll-snap-type: y proximity; }
+
       .capability-card { min-height: 9.6rem; }
       .pipeline-step { min-height: 9.4rem; }
       .machine-stage { min-height: 34rem; }
@@ -3184,7 +3188,7 @@
       border-radius: 1rem;
       background: rgba(8,12,11,.92);
     }
-    .journey-act > span { width: 2.6rem; aspect-ratio: 1; display: grid; place-items: center; border: 1px solid rgba(216,182,109,.45); border-radius: 50%; background: #080b0a; color: var(--gold-soft); font-family: var(--mono); font-size: 1rem; }
+    .journey-act > span { width: 2.6rem; height: 2.6rem; flex: 0 0 2.6rem; align-self: flex-start; display: grid; place-items: center; border: 1px solid rgba(216,182,109,.45); border-radius: 50%; background: #080b0a; color: var(--gold-soft); font-family: var(--mono); font-size: 1rem; }
     .journey-act div { display: flex; flex-direction: column; gap: .75rem; }
     .journey-act h3 { color: var(--ink); font-size: 1.45rem; }
     .journey-act p { color: var(--ink-soft); font-size: 1.1rem; line-height: 1.48; }
@@ -3242,9 +3246,46 @@
       .pipeline-journey { grid-template-columns: repeat(2,minmax(0,1fr)); }
       .pipeline-journey::before { display: none; }
       .journey-act { min-height: 11.4rem; flex-direction: row; justify-content: flex-start; gap: 1rem; padding: 1rem; }
-      .journey-act > span { flex: 0 0 2.6rem; }
+      .journey-act > span { align-self: center; }
       .journey-act div { justify-content: center; }
       .journey-act p { font-size: 1.1rem; }
+    }
+
+    @media (min-width: 761px) and (max-width: 1100px) {
+      /* Nesta faixa o mapa fica estreito demais para nós absolutos. A grade
+         mantém separação real entre Checkout, Trello e Galeria. */
+      #slide-10 .integration-map {
+        height: auto;
+        min-height: 0;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-content: center;
+        gap: .75rem;
+        transform: none;
+      }
+      #slide-10 .connector-lines { display: none; }
+      #slide-10 .integration-hub {
+        position: relative;
+        grid-column: 1 / -1;
+        width: 7.5rem;
+        margin: 0 auto .2rem;
+      }
+      #slide-10 .integration-node {
+        position: relative;
+        inset: auto;
+        width: auto;
+        min-height: 5.25rem;
+        transform: none;
+      }
+      #slide-10 .integration-node:hover,
+      #slide-10 .node-checkout:hover { transform: translateY(-2px); }
+      #slide-10 .node-checkout { grid-column: 1 / -1; }
+    }
+
+    @media (max-height: 800px) and (min-width: 701px) {
+      /* Reserva a área ocupada pela navegação fixa no encerramento. */
+      #slide-17 .slide-content { padding-bottom: 7rem; }
+      #slide-17 .closing-signature { margin-bottom: .5rem; }
     }
 
     @media (max-width: 760px) {
