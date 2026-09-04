@@ -3798,4 +3798,26 @@ body { height: auto; overflow-x: clip; overflow-y: visible; }
     border-top: 0 !important;
     border-left: 1px dashed rgba(134,217,210,.34);
   }
+
+  /* Encurta a passagem entre a rede e a calculadora. */
+  #slide-10 .slide-content { padding-bottom: 2rem; }
+  #slide-11 .slide-content { padding-top: 3rem; }
+  #slide-10 .integration-map { gap: .6rem 1.15rem; }
+  #slide-10 .integration-hub { margin-bottom: .65rem; }
+  #slide-10 .integration-node { min-height: 4.75rem; }
+}
+
+/* A rede radial precisa de uma faixa própria em desktops largos. */
+@media (min-width: 1101px) {
+  #slide-10 .integration-layout {
+    grid-template-columns: minmax(21rem, .66fr) minmax(35rem, 1.34fr);
+    gap: clamp(7rem, 10vw, 12rem);
+  }
+  #slide-10 .integration-copy h2 {
+    max-width: 11ch;
+    overflow-wrap: normal;
+    font-size: clamp(3rem, 3.55vw, 4.5rem);
+  }
+  #slide-10 .integration-map { min-width: 0; }
+  #slide-10 .integration-node { width: clamp(9.5rem, 11vw, 12rem); }
 }
