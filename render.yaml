@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: photomachine-square-first-edition
+    runtime: static
+    branch: main
+    buildCommand: echo Static site - no build step
+    staticPublishPath: ./
+    autoDeployTrigger: commit
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*
+        name: Permissions-Policy
+        value: camera=(), microphone=(), geolocation=()

@@ -3,12 +3,12 @@ PHOTOMACHINE · SQUARE FIRST EDITION
 COMO ABRIR
 1. Extraia todo o conteúdo do arquivo ZIP.
 2. Abra o arquivo index.html no Chrome, Edge ou Firefox.
-3. Use as setas do teclado, os controles na tela ou o toque para navegar.
-4. Use o botão no canto superior direito para entrar em tela cheia.
+3. Role a página livremente ou use os atalhos do cabeçalho.
+4. Explore as demonstrações de seleção, edição, aprovação, cálculo e o protótipo 3D.
 
 IMPORTANTE
 - Não mova o index.html para fora desta pasta.
 - Mantenha a pasta assets ao lado do index.html.
-- A apresentação funciona localmente e não precisa de internet.
+- A landing page funciona localmente e não precisa de internet.
 - Para compartilhar, envie o ZIP completo sem remover arquivos.
 
