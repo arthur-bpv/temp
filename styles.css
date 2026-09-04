@@ -3585,3 +3585,217 @@ body { height: auto; overflow-x: clip; overflow-y: visible; }
   #slide-4 .slide-content, #slide-7 .slide-content, #slide-8 .slide-content,
   #slide-9 .slide-content, #slide-11 .slide-content, #slide-13 .slide-content { min-height: 96vh; justify-content: center; }
 }
+
+/* ==================================================================
+   MOBILE POLISH · fluxo contínuo e componentes equivalentes ao desktop
+   ================================================================== */
+@media (max-width: 760px) {
+  html { scroll-behavior: auto; }
+  .deck {
+    background:
+      radial-gradient(circle at 92% 8%, rgba(217,181,107,.055), transparent 18rem),
+      linear-gradient(180deg, #050606 0%, #070908 48%, #050606 100%);
+  }
+  .slide {
+    display: block;
+    border-bottom: 0;
+    background: transparent;
+  }
+  .slide:not(.hero) { content-visibility: visible; contain-intrinsic-size: none; }
+  .slide::before { opacity: .12; mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent); }
+  .slide::after { opacity: .018; }
+  .slide + .slide .slide-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: var(--slide-padding-x);
+    width: 4rem;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    opacity: .42;
+  }
+  .slide-content { padding-top: 4.75rem; padding-bottom: 4.75rem; }
+
+  /* Hero compacto: o selo deixa de disputar escala com a mensagem. */
+  .hero { min-height: 0; }
+  .hero .slide-content {
+    min-height: 0;
+    justify-content: flex-start;
+    padding-top: 5.5rem;
+    padding-bottom: 2.6rem;
+  }
+  .hero-grid { gap: 1.5rem; }
+  .edition-seal {
+    min-height: 0;
+    grid-template: 12.25rem auto / 1fr;
+    padding-top: .25rem;
+  }
+  .edition-ring {
+    position: relative;
+    grid-area: 1 / 1;
+    width: min(59vw, 13rem);
+  }
+  .edition-core {
+    grid-area: 1 / 1;
+    width: min(36vw, 7.75rem);
+  }
+  .edition-core::after { font-size: clamp(3.2rem, 15vw, 4.1rem); }
+  .edition-copy {
+    position: static;
+    grid-row: 2;
+    margin-top: .85rem;
+    gap: .25rem;
+    font-size: .72rem;
+    line-height: 1.35;
+  }
+  .edition-copy strong { font-size: .8rem; }
+
+  /* Rajada: cinco provas compactas, sem um segundo carrossel de slides. */
+  .selection-demo { gap: .75rem; padding: .7rem; }
+  .burst-ribbon {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: .45rem;
+    overflow: visible;
+    padding: 0;
+    scroll-snap-type: none;
+  }
+  .burst-card {
+    grid-column: span 2;
+    width: 100%;
+    min-width: 0;
+    padding: .28rem;
+    border-radius: .75rem;
+    opacity: .78;
+    transform: none;
+  }
+  .burst-card:nth-child(4) { grid-column: 2 / span 2; }
+  .burst-card:nth-child(5) { grid-column: 4 / span 2; }
+  .burst-card.is-selected { opacity: 1; transform: translateY(-2px); }
+  .burst-card:hover { transform: none; }
+  .sequence-frame {
+    min-height: 0;
+    aspect-ratio: 3 / 4;
+  }
+  .sequence-frame::after {
+    background-size: 500% auto;
+    background-position: var(--sequence-x, 0%) 42%;
+  }
+  .burst-caption { display: grid; gap: .08rem; padding: .38rem .14rem .12rem; }
+  .burst-caption strong { font-size: .76rem; }
+  .burst-caption span { font-size: .68rem; }
+  .burst-rank {
+    top: .45rem;
+    left: .45rem;
+    min-width: 1.35rem;
+    height: 1.35rem;
+    font-size: .68rem;
+  }
+  .selection-readout {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    gap: .55rem;
+    padding: .85rem .2rem .15rem;
+  }
+  .selection-readout h3 { font-size: 1.35rem; line-height: 1.15; }
+  .readout-verdict { justify-self: start; }
+  .reason-list { gap: .35rem; }
+
+  /* Placa 01: reserva real para código, título e número decorativo. */
+  .first-edition-plaque {
+    min-height: 0;
+    justify-content: flex-start;
+    gap: .35rem;
+    padding: 4.2rem 1rem 1.25rem;
+  }
+  .plaque-code {
+    top: 1rem;
+    left: 1rem;
+    right: 5.5rem;
+    line-height: 1.4;
+  }
+  .plaque-number {
+    top: .35rem;
+    right: .65rem;
+    font-size: 6.4rem;
+    opacity: .72;
+  }
+  .first-edition-plaque h2 {
+    position: relative;
+    z-index: 2;
+    max-width: 10ch;
+    font-size: clamp(2.25rem, 12vw, 3rem);
+    line-height: .98;
+  }
+  .first-edition-plaque p { position: relative; z-index: 2; margin-top: .45rem; }
+
+  /* Mesmo mapa radial do desktop, reorganizado como rede móvel. */
+  #slide-10 .integration-map {
+    position: relative;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: start;
+    gap: .75rem 1.3rem;
+    padding: .6rem 0 0;
+    isolation: isolate;
+  }
+  #slide-10 .connector-lines { display: none; }
+  #slide-10 .integration-map::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    top: 7.8rem;
+    bottom: 3.7rem;
+    left: 50%;
+    border-left: 1px dashed rgba(134,217,210,.34);
+    transform: translateX(-50%);
+  }
+  #slide-10 .integration-hub {
+    position: relative;
+    z-index: 3;
+    grid-column: 1 / -1;
+    width: 8.5rem;
+    margin: 0 auto 1rem;
+    box-shadow: 0 0 0 .65rem rgba(217,181,107,.025), 0 0 45px rgba(217,181,107,.09);
+  }
+  #slide-10 .integration-node {
+    position: relative;
+    z-index: 2;
+    inset: auto;
+    width: auto;
+    min-height: 5.25rem;
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: .5rem;
+    padding: .65rem;
+    transform: none;
+    background: rgba(12,16,15,.96);
+  }
+  #slide-10 .integration-node:nth-of-type(odd)::before,
+  #slide-10 .integration-node:nth-of-type(even)::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: .72rem;
+    border-top: 1px dashed rgba(134,217,210,.34);
+  }
+  #slide-10 .integration-node:nth-of-type(odd)::before { right: -.73rem; }
+  #slide-10 .integration-node:nth-of-type(even)::before { left: -.73rem; }
+  #slide-10 .integration-node strong { font-size: .9rem; line-height: 1.15; }
+  #slide-10 .integration-node span { display: block; font-size: .72rem; line-height: 1.3; }
+  #slide-10 .integration-monogram { width: 2rem; height: 2rem; }
+  #slide-10 .node-checkout {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: min(74%, 15rem);
+    transform: none;
+  }
+  #slide-10 .node-checkout::before {
+    top: -.76rem !important;
+    left: 50% !important;
+    width: 0 !important;
+    height: .76rem;
+    border-top: 0 !important;
+    border-left: 1px dashed rgba(134,217,210,.34);
+  }
+}
