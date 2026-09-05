@@ -3821,3 +3821,31 @@ body { height: auto; overflow-x: clip; overflow-y: visible; }
   #slide-10 .integration-map { min-width: 0; }
   #slide-10 .integration-node { width: clamp(9.5rem, 11vw, 12rem); }
 }
+
+/* Faixa final de segurança para aparelhos pequenos e paisagem curta. */
+@media (max-width: 480px) {
+  .deck-chrome {
+    padding-left: max(.75rem, env(safe-area-inset-left));
+    padding-right: max(.75rem, env(safe-area-inset-right));
+  }
+  .chrome-edition { max-width: min(62vw, 11rem); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .slide-content {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+  .hero-title { overflow-wrap: anywhere; }
+  .machine-actions { flex-wrap: wrap; }
+  .machine-actions > * { flex: 1 1 9rem; }
+}
+
+@media (orientation: landscape) and (max-width: 900px) and (max-height: 560px) {
+  .slide-content,
+  .hero .slide-content {
+    min-height: 100svh;
+    padding-top: max(4.6rem, calc(3.35rem + 1rem));
+    padding-bottom: max(3rem, calc(2.5rem + env(safe-area-inset-bottom)));
+  }
+  .hero .slide-content { justify-content: flex-start; }
+  .machine-stage { min-height: min(25rem, 72svh); }
+  .edition-seal { min-height: min(13rem, 48svh); }
+}
