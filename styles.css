@@ -3856,6 +3856,8 @@ body { height: auto; overflow-x: clip; overflow-y: visible; }
   #slide-10 .integration-map {
     min-height: 0;
     height: auto;
+    max-width: 34rem;
+    margin-inline: auto;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-content: start;
     gap: .55rem .85rem;
@@ -3866,17 +3868,17 @@ body { height: auto; overflow-x: clip; overflow-y: visible; }
     bottom: 3.25rem;
   }
   #slide-10 .integration-hub {
-    width: min(7rem, 32vw);
+    width: min(6.5rem, 28vw);
     margin-bottom: .4rem;
   }
   #slide-10 .integration-node {
-    min-height: 4.1rem;
+    min-height: 3.7rem;
     grid-template-columns: 1.8rem minmax(0, 1fr);
     gap: .42rem;
-    padding: .55rem;
+    padding: .48rem;
   }
   #slide-10 .integration-monogram { width: 1.8rem; height: 1.8rem; }
   #slide-10 .integration-node strong { font-size: .84rem; }
   #slide-10 .integration-node span { font-size: .68rem; line-height: 1.2; }
-  #slide-10 .node-checkout { width: min(72%, 14rem); min-height: 3.75rem; }
+  #slide-10 .node-checkout { width: min(68%, 13rem); min-height: 3.45rem; }
 }
